@@ -1,20 +1,31 @@
-let money = 100; //любое число “Доход за месяц”, 
-let income = 'Фриланс'; //строка с дополнительными доходом 
-let addExpenses = 'Такси, интернет'; //строка дополнительных расходов 
-let deposit = true; // любое булево значение
-let mission = 1000; //любое число
-let period = 1; //число от 1 до 12 (месяцев) 
-let budgetDay = 2000; //дневной бюджет
+const computerNumber = 6;
+let userNumber; 
+//userNumber=prompt("Угадай число от 1 до 100");
 
-console.log(typeof(money));
-console.log(typeof(income));
-console.log(typeof(deposit));
+//console.log (isNaN(userNumber));
 
-console.log(addExpenses.length);
-
-console.log("Период равен " + period + " Месяцев");
-console.log("Цель зарабоать " + mission + " рублей/долларов");
-
-
-console.log(addExpenses.toLowerCase().split(","));
-console.log(budgetDay);
+function inputNumber(){
+    userNumber=prompt("Угадай число от 1 до 100");
+    
+    if (userNumber===null){
+         alert("Игра окончена");
+         return;
+        }
+    if(isNaN(userNumber)) {      
+            alert("Введите число");
+            inputNumber();
+    }
+    if (userNumber==computerNumber) {
+        alert("Вы угадали");
+    }
+    if (userNumber>computerNumber) {
+        alert("Загаданное число меньше");
+        inputNumber();
+    }
+    if ((userNumber>0)&&(userNumber<computerNumber)) {
+        alert("Загаданное число больше");
+        inputNumber();
+    }
+    
+}
+inputNumber();
